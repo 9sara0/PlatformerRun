@@ -20,7 +20,7 @@
 ## MVP Features:
   * GPS tracking
   * Runners have accounts (They can sign-up/sign-in/and sign-out)
-  * Hearing sound for gaining coins after running for a set distance.
+  * Hearing sound for gaining coins after running for a setdistance.
   * A user can collect points (by collecting coins).
   * Use's points should accumulate.
   * Leader-board (highest scores runners)
@@ -34,16 +34,52 @@
   * A user can collect coins (by achieving run goals + collecting coins).
   * Leader-board (highest scores runners in a day/month/year)
 
-## Possible solutions
-  * ReactJS Android with Ruby on Rails backend
-    - Pros: Familiar JS syntax, can develop for either iOS or Android, Rails quick to get started
-    - Cons: We don't know how to make this an app and not a webpage. not found many detailed tutorials
-  * Java Android app
-    - Pros: mature language, been around a long time, lots resources on making mobile apps
-    - Cons: Unfamiliar language, compiled language (new to us).
-  * Swift iOS app
-    - Pros: initial research looks easier to learn, built for iOS, know another cohort has made a swift app
-    - Cons: Unfamiliar language
-  * Using an existing running app, use API to connect website
-    - Pros: using most technologies that we know, can add lots in a short time
-    - Cons: doesn't really feel like a game
+## Technologies
+  * Java
+
+## IDE choices
+  * Eclipse
+  * Android Studio
+
+## User stories
+```
+As a runner
+So that I can log my run
+I would like to be able to start my run
+
+As a runner
+So that I can log my run
+I would like to be able to end my run
+
+As a runner
+So that I can log my run
+I would like to be able calculate the distance between the start and end
+
+As a runner
+So that I can log my run
+I would like to be able to record the time between the start and end
+
+As a runner
+So that I can view my run
+I would like to be able to submit and log my run information
+
+As a runner
+So that I know I'm playing a game
+I would like to be able to hear coin pickups
+
+As a runner
+To stay motivated while running
+I would like to be able to collection virtual coins as I running
+
+As a runner
+So that my coins arent wiped on each run
+I would like my coins to accumulate
+
+As a runner
+To keep me motivated
+I would like to compete with other runners through a Leader-board
+
+As a runner
+So I can save runs and coins
+I would like to be able to sign up, log in and logout
+```
