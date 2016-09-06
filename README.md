@@ -20,7 +20,7 @@
 ## MVP Features:
   * GPS tracking
   * Runners have accounts (They can sign-up/sign-in/and sign-out)
-  * Hearing sound for gaining coins after running for a setdistance.
+  * Hearing sound for gaining coins after running for a set distance.
   * A user can collect points (by collecting coins).
   * Use's points should accumulate.
   * Leader-board (highest scores runners)
@@ -72,7 +72,7 @@ To stay motivated while running
 I would like to be able to collection virtual coins as I running
 
 As a runner
-So that my coins arent wiped on each run
+So that my coins aren't wiped on each run
 I would like my coins to accumulate
 
 As a runner
