@@ -37,8 +37,7 @@
 ## Technologies
   * Java
 
-## IDE choices
-  * Eclipse
+## IDE 
   * Android Studio
 
 ## User stories
