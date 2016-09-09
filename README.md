@@ -37,7 +37,7 @@
 ## Technologies
   * Java
 
-## IDE 
+## IDE
   * Android Studio
 
 ## User stories
@@ -82,3 +82,6 @@ As a runner
 So I can save runs and coins
 I would like to be able to sign up, log in and logout
 ```
+
+## Diagrams
+![mvp_v1](https://raw.githubusercontent.com/9sarah0/platform-runner/master/mvp_game_diagram_v1.png)
