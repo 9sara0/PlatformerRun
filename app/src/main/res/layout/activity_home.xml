@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:paddingRight="16dp">
 
     <TextView
-        android:paddingTop="200dp"
         android:layout_width="132dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Total Coins: 0"
         android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="122dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Game"
         android:id="@+id/startGame"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:onClick="startGame"/>
-</LinearLayout>
+        android:onClick="startGame"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="92dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/marioMainPage"
+        android:layout_above="@+id/startGame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp" />
+</RelativeLayout>
