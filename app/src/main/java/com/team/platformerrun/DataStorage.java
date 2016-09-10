@@ -1,21 +1,31 @@
 package com.team.platformerrun;
 
-import android.content.Context;
+import android.app.Activity;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
 
-import java.io.FileOutputStream;
+public class DataStorage extends Activity {
 
-public class DataStorage {
-
-
-    public static void saveData(String coins) {
-        FileOutputStream outputStream = null;
-        context = getApplicationContext();
+    public String readItems() {
+        File filesDir = getFilesDir();
+        File coinData = new File(filesDir, "coin_data");
         try {
-            outputStream = context.openFileOutput("coins_data", Context.MODE_PRIVATE);
-            outputStream.write(coins.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
+            return FileUtils.readFileToString(coinData);
+        } catch (IOException e) {
+            return "0";
+        }
+    }
+
+    public void writeItems(String coins) {
+        File filesDir = getFilesDir();
+        File coinData = new File(filesDir, "coin_data");
+        try {
+            FileUtils.writeStringToFile(coinData, coins);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 }

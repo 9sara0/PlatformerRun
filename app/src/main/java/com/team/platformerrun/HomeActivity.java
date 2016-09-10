@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -11,6 +12,13 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        DataStorage coinData = new DataStorage();
+        String coins = coinData.readItems();
+
+        String message = "Total Coins: " + coins;
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(message);
     }
 
     public void startGame(View view) {
