@@ -15,7 +15,6 @@ public class HomeActivity extends AppCompatActivity {
 
     public void startGame(View view) {
         Intent intent = new Intent(this, CollectCoins.class);
-
         startActivity(intent);
     }
 }

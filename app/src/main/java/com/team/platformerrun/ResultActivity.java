@@ -14,13 +14,11 @@ public class ResultActivity extends AppCompatActivity {
     }
     public void startGame(View view) {
         Intent intent = new Intent(this, CollectCoins.class);
-
         startActivity(intent);
     }
 
     public void returnHome(View view) {
         Intent intent = new Intent(this, HomeActivity.class);
-
-                startActivity(intent);
+        startActivity(intent);
     }
 }
