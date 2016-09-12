@@ -47,5 +47,5 @@
         android:layout_below="@+id/start_again"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:onClick="collectCoins"/>
+        android:onClick="returnHome"/>
 </RelativeLayout>
