@@ -24,7 +24,19 @@
         android:layout_height="wrap_content"
         android:text="Total Coin: 0"
         android:id="@+id/textView"
-        android:layout_alignEnd="@+id/collect_coin" />
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Game"
+        android:id="@+id/button"
+        android:layout_alignTop="@+id/collect_coin"
+        android:onClick="endGame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp" />
 
 
 </RelativeLayout>
