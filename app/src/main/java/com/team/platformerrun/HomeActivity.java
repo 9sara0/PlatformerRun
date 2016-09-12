@@ -13,8 +13,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        DataStorage coinData = new DataStorage();
-        String coins = coinData.readItems();
+        String coins = DataStorage.readCoins(this);
 
         String message = "Total Coins: " + coins;
         TextView textView = (TextView) findViewById(R.id.textView);
@@ -25,4 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CollectCoins.class);
         startActivity(intent);
     }
+
+
+
 }

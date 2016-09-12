@@ -1,14 +1,16 @@
 package com.team.platformerrun;
 
-import android.app.Activity;
+import android.content.Context;
+
 import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 
-public class DataStorage extends Activity {
+public class DataStorage  {
 
-    public String readItems() {
-        File filesDir = getFilesDir();
+    public static String readCoins(Context context) {
+        File filesDir = context.getFilesDir();
         File coinData = new File(filesDir, "coin_data");
         try {
             return FileUtils.readFileToString(coinData);
@@ -17,8 +19,8 @@ public class DataStorage extends Activity {
         }
     }
 
-    public void writeItems(String coins) {
-        File filesDir = getFilesDir();
+    public static void writeCoins(String coins, Context context) {
+        File filesDir = context.getFilesDir();
         File coinData = new File(filesDir, "coin_data");
         try {
             FileUtils.writeStringToFile(coinData, coins);
