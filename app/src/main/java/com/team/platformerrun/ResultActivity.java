@@ -11,6 +11,8 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        DataStorage.writeCoins("5", this);
     }
     public void startGame(View view) {
         Intent intent = new Intent(this, CollectCoins.class);
