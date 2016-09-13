@@ -13,9 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Collect Coin"
-        android:id="@+id/collect_coin"
+        android:id="@+id/collectCoinsButton"
         android:onClick="collectCoins"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/endGameButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp" />
 
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="End Game"
-        android:id="@+id/button"
+        android:id="@+id/endGameButton"
         android:onClick="endGame"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

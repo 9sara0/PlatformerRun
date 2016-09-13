@@ -30,15 +30,19 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ActivityTestRule<HomeActivity> myActivityRule = new ActivityTestRule<>(HomeActivity.class);
 
     @Test
-    public void startNewGame_secondActivity(){
+    public void clickingAllTheButtons(){
         onView(withId(R.id.startGame))
                 .perform(click());
         onView(withId(R.id.gameRunningTotalCoins))
                 .check(matches(withText("Total Coins: 0")));
-        onView(withId(R.id.collect_coin))
+        onView(withId(R.id.collectCoinsButton))
                 .perform(click());
         onView(withId(R.id.gameRunningTotalCoins))
                 .check(matches(withText("Total Coins: 1")));
+        onView(withId(R.id.endGameButton))
+                .perform(click());
+        onView(withId(R.id.coins_collected))
+                .check(matches(withText("You collected 1 coin!")));
     }
 
 }

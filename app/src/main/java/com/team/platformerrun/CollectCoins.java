@@ -30,7 +30,7 @@ public class CollectCoins extends AppCompatActivity {
 
     public void endGame(View view) {
         Intent intent = new Intent(this, ResultActivity.class);
-
+        intent.putExtra("Coins", Integer.toString(coin.getCoinTotal()));
         startActivity(intent);
     }
 }
