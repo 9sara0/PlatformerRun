@@ -13,31 +13,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Collect Coin"
-        android:id="@+id/collect_coin"
+        android:id="@+id/collectCoinsButton"
         android:onClick="collectCoins"
-        android:layout_below="@+id/textView"
+        android:layout_above="@+id/endGameButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_marginBottom="60dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Coin: 0"
-        android:id="@+id/textView"
-        android:layout_marginTop="40dp"
+        android:text="Total Coins: 0"
+        android:id="@+id/gameRunningTotalCoins"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:textSize="30dp"
+        android:textStyle="normal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="End Game"
-        android:id="@+id/button"
+        android:id="@+id/endGameButton"
         android:onClick="endGame"
-        android:layout_marginBottom="81dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="67dp" />
 
 </RelativeLayout>
 
