@@ -6,31 +6,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import javax.xml.datatype.Duration;
 
 public class ResultActivity extends AppCompatActivity {
 
-    String coinsCollectedInRun;
     Long runDuration;
+    int coinsCollectedInRun;
+    String highScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         // gets the coins from the completed game
         Intent intent = getIntent();
-        coinsCollectedInRun = intent.getExtras().getString("Coins");
-        // get the duration
+
         runDuration = (intent.getLongExtra("Duration", 0));
 
-        // saves the coins to file
-        DataStorage.writeCoins(coinsCollectedInRun, this);
+        coinsCollectedInRun = intent.getExtras().getInt("Coins");
 
 
         // displays the total and time
         displayCoinTotal();
+       //Read high score
+        highScore = DataStorage.readHighScore(this);
+        //update high score value
+        updateHighestScore();
+        // save high score
+        DataStorage.writeHighScore(highScore, this);
 
-
-
+        displayHighScore();
     }
 
     public void startGame(View view) {
@@ -58,6 +62,18 @@ public class ResultActivity extends AppCompatActivity {
         long hour = (millis / (1000 * 60 * 60)) % 24;
         String time = String.format("%02d:%02d:%02d", hour, minute, second);
         return time;
+    }
+
+    public void displayHighScore() {
+        String message = "High Score " + highScore;
+        TextView highScoreText = (TextView) findViewById(R.id.highScore);
+        highScoreText.setText(message);
+    }
+
+    public void updateHighestScore() {
+        if (coinsCollectedInRun > Integer.parseInt(highScore)) {
+            highScore = Integer.toString(coinsCollectedInRun);
+        }
     }
 
 }

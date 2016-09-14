@@ -48,4 +48,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:onClick="returnHome"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="High Score: 0"
+        android:id="@+id/highScore"
+        android:layout_alignEnd="@+id/coins_collected"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/start_again"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

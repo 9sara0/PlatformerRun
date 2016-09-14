@@ -30,19 +30,51 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ActivityTestRule<HomeActivity> myActivityRule = new ActivityTestRule<>(HomeActivity.class);
 
     @Test
-    public void clickingAllTheButtons(){
+    public void clickingStartGameButtonShouldDispalyCoinsThisRun0(){
         onView(withId(R.id.startGame))
                 .perform(click());
         onView(withId(R.id.gameRunningTotalCoins))
-                .check(matches(withText("Total Coins: 0")));
+                .check(matches(withText("Coins This Run: 0")));
+    }
+
+    @Test
+    public void clickingCollectCoinButtonShouldDispalyCoinsThisRun1(){
+        onView(withId(R.id.startGame))
+                .perform(click());
         onView(withId(R.id.collectCoinsButton))
                 .perform(click());
         onView(withId(R.id.gameRunningTotalCoins))
-                .check(matches(withText("Total Coins: 1")));
+                .check(matches(withText("Coins This Run: 1")));
+    }
+
+
+    @Test
+    public void clickingEndGameButtonShouldDispalyYouCollected1Coin(){
+        onView(withId(R.id.startGame))
+                .perform(click());
+        onView(withId(R.id.collectCoinsButton))
+                .perform(click());
         onView(withId(R.id.endGameButton))
                 .perform(click());
         onView(withId(R.id.coins_collected))
-                .check(matches(withText("You collected 1 coin!")));
+                .check(matches(withText("You collected 1 coins!")));
+        onView(withId(R.id.highScore))
+                .check(matches(withText("High Score 6")));
     }
+
+    @Test
+    public void clickingMainMenuButtonShouldDispalyHighScore(){
+        onView(withId(R.id.startGame))
+                .perform(click());
+        onView(withId(R.id.collectCoinsButton))
+                .perform(click());
+        onView(withId(R.id.endGameButton))
+                .perform(click());
+        onView(withId(R.id.return_home))
+                .perform(click());
+        onView(withId(R.id.highScore))
+                .check(matches(withText("High Score 6")));
+    }
+
 
 }

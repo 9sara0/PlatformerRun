@@ -9,25 +9,27 @@ import java.io.IOException;
 
 public class DataStorage  {
 
-    public static String readCoins(Context context) {
+    public static String readHighScore(Context context) {
         File filesDir = context.getFilesDir();
-        File coinData = new File(filesDir, "coin_data");
+        File scoreData = new File(filesDir, "high_score");
+        String defaultHighScore = "0";
         try {
-            return FileUtils.readFileToString(coinData);
+            return FileUtils.readFileToString(scoreData);
         } catch (IOException e) {
-            return "0";
+            return defaultHighScore;
         }
     }
 
-    public static void writeCoins(String coins, Context context) {
+    public static void writeHighScore(String coins, Context context) {
         File filesDir = context.getFilesDir();
-        File coinData = new File(filesDir, "coin_data");
+        File scoreData = new File(filesDir, "high_score");
         try {
-            FileUtils.writeStringToFile(coinData, coins);
+            FileUtils.writeStringToFile(scoreData, coins);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
 }
