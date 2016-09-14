@@ -62,5 +62,19 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                 .check(matches(withText("High Score 6")));
     }
 
+    @Test
+    public void clickingMainMenuButtonShouldDispalyHighScore(){
+        onView(withId(R.id.startGame))
+                .perform(click());
+        onView(withId(R.id.collectCoinsButton))
+                .perform(click());
+        onView(withId(R.id.endGameButton))
+                .perform(click());
+        onView(withId(R.id.return_home))
+                .perform(click());
+        onView(withId(R.id.highScore))
+                .check(matches(withText("High Score 6")));
+    }
+
 
 }
