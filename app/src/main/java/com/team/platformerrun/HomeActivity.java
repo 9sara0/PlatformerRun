@@ -13,9 +13,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        String coins = DataStorage.readCoins(this);
+        String highScore = DataStorage.readHighScore(this);
 
-        String message = "Total Coins: " + coins;
+        String message = "High Score: " + highScore;
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(message);
     }

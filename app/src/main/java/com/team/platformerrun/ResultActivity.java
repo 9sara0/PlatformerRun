@@ -8,20 +8,32 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
-    String coinsCollectedInRun;
+    int coinsCollectedInRun;
+    String highScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         // gets the coins from the completed game
         Intent intent = getIntent();
-        coinsCollectedInRun = intent.getExtras().getString("Coins");
+        coinsCollectedInRun = intent.getExtras().getInt("Coins");
+
 
         // saves the coins to file
-        DataStorage.writeCoins(coinsCollectedInRun, this);
+        DataStorage.writeCoins(Integer.toString(coinsCollectedInRun), this);
 
         // displays the total
         displayCoinTotal();
+
+        //Read high score
+        highScore = DataStorage.readHighScore(this);
+        //update high score value
+        updateHighestScore();
+        // save high score
+        DataStorage.writeHighScore(highScore, this);
+
+        displayHighScore();
+
     }
 
     public void startGame(View view) {
@@ -34,9 +46,24 @@ public class ResultActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void displayCoinTotal () {
+    public void displayCoinTotal() {
         String message = "You collected " + coinsCollectedInRun + " coins!";
         TextView textView = (TextView) findViewById(R.id.coins_collected);
         textView.setText(message);
     }
+
+
+    public void displayHighScore() {
+        String message = "High Score " + highScore;
+        TextView highScoreText = (TextView) findViewById(R.id.highScore);
+        highScoreText.setText(message);
+    }
+
+    public void updateHighestScore() {
+        if (coinsCollectedInRun > Integer.parseInt(highScore)) {
+            highScore = Integer.toString(coinsCollectedInRun);
+        }
+    }
+
+
 }

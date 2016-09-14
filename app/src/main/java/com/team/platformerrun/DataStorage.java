@@ -10,12 +10,13 @@ import java.io.IOException;
 public class DataStorage  {
 
     public static String readCoins(Context context) {
-        File filesDir = context.getFilesDir();
-        File coinData = new File(filesDir, "coin_data");
+        File   filesDir = context.getFilesDir();
+        File   coinData = new File(filesDir, "coin_data");
+        String defaultTotalCoins = new String("0");
         try {
             return FileUtils.readFileToString(coinData);
         } catch (IOException e) {
-            return "0";
+            return defaultTotalCoins;
         }
     }
 
@@ -28,6 +29,31 @@ public class DataStorage  {
             e.printStackTrace();
         }
     }
+
+
+
+
+    public static String readHighScore(Context context) {
+        File filesDir = context.getFilesDir();
+        File scoreData = new File(filesDir, "high_score");
+        String defaultHighScore = "0";
+        try {
+            return FileUtils.readFileToString(scoreData);
+        } catch (IOException e) {
+            return defaultHighScore;
+        }
+    }
+
+    public static void writeHighScore(String coins, Context context) {
+        File filesDir = context.getFilesDir();
+        File scoreData = new File(filesDir, "high_score");
+        try {
+            FileUtils.writeStringToFile(scoreData, coins);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }
