@@ -93,6 +93,10 @@ public class CollectCoins extends AppCompatActivity {
         });
     }
 
+    public void stopLocationListener() {
+        locationManager = null;
+    }
+
     public void collectCoins() {
         coin.addCoin();
         coinSound.start();
@@ -102,6 +106,7 @@ public class CollectCoins extends AppCompatActivity {
     }
 
     public void endGame(View view) {
+        stopLocationListener();
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("Coins", coin.getCoinTotal());
         startActivity(intent);
