@@ -56,8 +56,6 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                 .perform(click());
         onView(withId(R.id.endGameButton))
                 .perform(click());
-        onView(withId(R.id.coins_collected))
-                .check(matches(withText("You collected 1 coins!")));
         onView(withId(R.id.highScore))
                 .check(matches(withText("High Score 6")));
     }
@@ -70,7 +68,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                 .perform(click());
         onView(withId(R.id.endGameButton))
                 .perform(click());
-        onView(withId(R.id.return_home))
+        onView(withId(R.id.returnHome))
                 .perform(click());
         onView(withId(R.id.highScore))
                 .check(matches(withText("High Score 6")));

@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="You collected 0 coins!"
-        android:id="@+id/coins_collected"
+        android:id="@+id/coinsCollected"
         android:layout_marginTop="41dp"
         android:layout_below="@+id/congratulate"
         android:layout_centerHorizontal="true" />
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Start Game"
         android:id="@+id/start_again"
-        android:layout_below="@+id/coins_collected"
+        android:layout_below="@+id/coinsCollected"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
         android:onClick="startGame"/>
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main Menu"
-        android:id="@+id/return_home"
+        android:id="@+id/returnHome"
         android:layout_below="@+id/start_again"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
@@ -55,7 +55,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="High Score: 0"
         android:id="@+id/highScore"
-        android:layout_alignEnd="@+id/coins_collected"
+        android:layout_alignEnd="@+id/coinsCollected"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/start_again"
         android:layout_alignParentBottom="true" />

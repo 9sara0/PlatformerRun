@@ -50,14 +50,14 @@ public class ResultActivity extends AppCompatActivity {
     public void displayCoinTotal () {
         String duration = formatDuration(runDuration);
         String message = "You collected " + coinsCollectedInRun + " coins in " + duration;
-        TextView textView = (TextView) findViewById(R.id.coins_collected);
+        TextView textView = (TextView) findViewById(R.id.coinsCollected);
         textView.setText(message);
 
     }
 
 
     public String formatDuration(Long millis) {
-        long second = (millis / 1000) % 60;
+        long second = (millis/ 1000) % 60;
         long minute = (millis / (1000 * 60)) % 60;
         long hour = (millis / (1000 * 60 * 60)) % 24;
         String time = String.format("%02d:%02d:%02d", hour, minute, second);
