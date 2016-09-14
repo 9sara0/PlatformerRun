@@ -23,14 +23,37 @@ public class CollectCoins extends AppCompatActivity {
     public void collectCoins(View view) {
         coin.addCoin();
         coinSound.start();
-        String message = "Total Coins: " + Integer.toString(coin.getCoinTotal());
+        String message = "Coins This Run: " + Integer.toString(coin.getCoinTotal());
         TextView textView = (TextView) findViewById(R.id.gameRunningTotalCoins);
         textView.setText(message);
     }
 
     public void endGame(View view) {
         Intent intent = new Intent(this, ResultActivity.class);
-        intent.putExtra("Coins", Integer.toString(coin.getCoinTotal()));
+        intent.putExtra("Coins", coin.getCoinTotal());
         startActivity(intent);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
