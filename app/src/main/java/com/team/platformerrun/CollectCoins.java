@@ -10,7 +10,8 @@ import android.widget.TextView;
 public class CollectCoins extends AppCompatActivity {
 
     MediaPlayer coinSound;
-    Coin            coin;
+    Coin             coin;
+    long        startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class CollectCoins extends AppCompatActivity {
         setContentView(R.layout.activity_collect_coins);
         coinSound = MediaPlayer.create(this, R.raw.coin_sound );
         coin = new Coin();
+        startTime = System.currentTimeMillis();
     }
 
     public void collectCoins(View view) {
@@ -32,5 +34,14 @@ public class CollectCoins extends AppCompatActivity {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("Coins", Integer.toString(coin.getCoinTotal()));
         startActivity(intent);
+
+        // sending duration to result activity
+        Intent intentDuration = new Intent(this, ResultActivity.class);
+        intentDuration.putExtra("Duration", calculateDuration());
+        startActivity(intentDuration);
+    }
+
+    public long calculateDuration() {
+        return startTime - System.currentTimeMillis();
     }
 }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class ResultActivity extends AppCompatActivity {
 
     String coinsCollectedInRun;
+    long runDuration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,13 @@ public class ResultActivity extends AppCompatActivity {
 
         // displays the total
         displayCoinTotal();
+
+        // get the duration
+        Intent intentDuration = getIntent();
+        runDuration = intentDuration.getExtras().getLong("Duration");
+        // display duration
+
+
     }
 
     public void startGame(View view) {
@@ -35,8 +43,14 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void displayCoinTotal () {
-        String message = "You collected " + coinsCollectedInRun + " coins!";
+        String message = "You collected " + coinsCollectedInRun + " coins!" + String.valueOf(runDuration);
         TextView textView = (TextView) findViewById(R.id.coins_collected);
         textView.setText(message);
+
     }
+
+//    public void displayDuration() {
+//        String duration = String.valueOf(date);
+//    }
+//    DurationFormatUtils.formatDuration(completedIn, "HH:mm:ss:SS");
 }
