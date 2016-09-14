@@ -11,7 +11,7 @@ public class CollectCoins extends AppCompatActivity {
 
     MediaPlayer coinSound;
     Coin             coin;
-    long        startTime;
+    Long        startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +33,14 @@ public class CollectCoins extends AppCompatActivity {
     public void endGame(View view) {
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("Coins", Integer.toString(coin.getCoinTotal()));
+        intent.putExtra("Duration", calculateDuration());
         startActivity(intent);
 
-        // sending duration to result activity
-        Intent intentDuration = new Intent(this, ResultActivity.class);
-        intentDuration.putExtra("Duration", calculateDuration());
-        startActivity(intentDuration);
     }
 
-    public long calculateDuration() {
-        return startTime - System.currentTimeMillis();
+    public Long calculateDuration() {
+        Long duration;
+        duration =  System.currentTimeMillis() - startTime;
+        return duration;
     }
 }

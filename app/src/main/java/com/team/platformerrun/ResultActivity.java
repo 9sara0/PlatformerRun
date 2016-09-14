@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import javax.xml.datatype.Duration;
+
 public class ResultActivity extends AppCompatActivity {
 
     String coinsCollectedInRun;
-    long runDuration;
+    Long runDuration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,17 +19,16 @@ public class ResultActivity extends AppCompatActivity {
         // gets the coins from the completed game
         Intent intent = getIntent();
         coinsCollectedInRun = intent.getExtras().getString("Coins");
+        // get the duration
+        runDuration = (intent.getLongExtra("Duration", 0));
 
         // saves the coins to file
         DataStorage.writeCoins(coinsCollectedInRun, this);
 
-        // displays the total
+
+        // displays the total and time
         displayCoinTotal();
 
-        // get the duration
-        Intent intentDuration = getIntent();
-        runDuration = intentDuration.getExtras().getLong("Duration");
-        // display duration
 
 
     }
@@ -43,14 +44,20 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void displayCoinTotal () {
-        String message = "You collected " + coinsCollectedInRun + " coins!" + String.valueOf(runDuration);
+        String duration = formatDuration(runDuration);
+        String message = "You collected " + coinsCollectedInRun + " coins in " + duration;
         TextView textView = (TextView) findViewById(R.id.coins_collected);
         textView.setText(message);
 
     }
 
-//    public void displayDuration() {
-//        String duration = String.valueOf(date);
-//    }
-//    DurationFormatUtils.formatDuration(completedIn, "HH:mm:ss:SS");
+
+    public String formatDuration(Long millis) {
+        long second = (millis / 1000) % 60;
+        long minute = (millis / (1000 * 60)) % 60;
+        long hour = (millis / (1000 * 60 * 60)) % 24;
+        String time = String.format("%02d:%02d:%02d", hour, minute, second);
+        return time;
+    }
+
 }
