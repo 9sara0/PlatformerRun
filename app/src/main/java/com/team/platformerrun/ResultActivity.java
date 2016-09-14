@@ -18,10 +18,6 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         coinsCollectedInRun = intent.getExtras().getInt("Coins");
 
-
-        // saves the coins to file
-        DataStorage.writeCoins(Integer.toString(coinsCollectedInRun), this);
-
         // displays the total
         displayCoinTotal();
 
