@@ -19,16 +19,16 @@ import android.widget.TextView;
 public class CollectCoins extends AppCompatActivity {
 
     MediaPlayer coinSound;
-    Coin            coin;
+    Coin coin;
     LocationManager locationManager;
     LocationListener locationListener;
-    Long        startTime;
+    Long startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_coins);
-        coinSound = MediaPlayer.create(this, R.raw.coin_sound );
+        coinSound = MediaPlayer.create(this, R.raw.coin_sound);
         coin = new Coin();
         startTime = System.currentTimeMillis();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -62,7 +62,7 @@ public class CollectCoins extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case 10:
                 startLocationListening();
                 break;
@@ -87,8 +87,8 @@ public class CollectCoins extends AppCompatActivity {
     }
 
     public void stopLocationListener() {
+        locationManager.removeUpdates(locationListener);
         locationManager = null;
-
     }
 
     public void collectCoins() {
