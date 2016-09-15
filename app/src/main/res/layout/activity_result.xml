@@ -7,47 +7,37 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.team.platformerrun.ResultActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Well Done!"
-        android:id="@+id/congratulate"
-        android:layout_marginTop="62dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    tools:context="com.team.platformerrun.ResultActivity"
+    android:background="@drawable/game_over">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="You collected 0 coins!"
-        android:id="@+id/coins_collected"
+        android:id="@+id/coinsCollected"
         android:layout_marginTop="41dp"
-        android:layout_below="@+id/congratulate"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Game"
         android:id="@+id/start_again"
-        android:layout_below="@+id/coins_collected"
+        android:layout_below="@+id/coinsCollected"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
-        android:onClick="startGame"/>
+        android:onClick="startGame"
+        android:background="@drawable/start_game" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Menu"
-        android:id="@+id/return_home"
+        android:id="@+id/returnHome"
         android:layout_below="@+id/start_again"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:onClick="returnHome"/>
+        android:onClick="returnHome"
+        android:background="@drawable/main_menu_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,8 +45,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="High Score: 0"
         android:id="@+id/highScore"
-        android:layout_alignEnd="@+id/coins_collected"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/start_again"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

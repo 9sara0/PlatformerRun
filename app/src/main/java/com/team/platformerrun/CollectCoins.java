@@ -24,7 +24,7 @@ public class CollectCoins extends AppCompatActivity {
     LocationManager locationManager;
     LocationListener locationListener;
     Button playButton;
-
+    Long        startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class CollectCoins extends AppCompatActivity {
         playButton = (Button) findViewById(R.id.collectCoinsButton);
         coinSound = MediaPlayer.create(this, R.raw.coin_sound );
         coin = new Coin();
-
+        startTime = System.currentTimeMillis();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         locationListener = new LocationListener() {
@@ -95,6 +95,7 @@ public class CollectCoins extends AppCompatActivity {
 
     public void stopLocationListener() {
         locationManager = null;
+
     }
 
     public void collectCoins() {
@@ -108,30 +109,14 @@ public class CollectCoins extends AppCompatActivity {
     public void endGame(View view) {
         stopLocationListener();
         Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("Duration", calculateDuration());
         intent.putExtra("Coins", coin.getCoinTotal());
         startActivity(intent);
     }
+
+    private Long calculateDuration() {
+        Long duration;
+        duration =  System.currentTimeMillis() - startTime;
+        return duration;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

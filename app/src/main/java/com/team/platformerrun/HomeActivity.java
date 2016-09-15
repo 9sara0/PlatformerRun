@@ -1,6 +1,7 @@
 package com.team.platformerrun;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +16,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         highScore = DataStorage.readHighScore(this);
         displayHighScore();
+        TextView tx = (TextView)findViewById(R.id.highScore);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/mario.ttf");
+
+        tx.setTypeface(custom_font);
     }
 
     public void startGame(View view) {
@@ -23,12 +29,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    public void displayHighScore() {
+    private void displayHighScore() {
         String message = "High Score " + highScore;
         TextView highScoreText = (TextView) findViewById(R.id.highScore);
         highScoreText.setText(message);
     }
-
-
-
 }
