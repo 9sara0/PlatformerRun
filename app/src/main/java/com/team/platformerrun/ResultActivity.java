@@ -2,6 +2,7 @@ package com.team.platformerrun;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,11 +14,16 @@ public class ResultActivity extends AppCompatActivity {
     Long runDuration;
     int coinsCollectedInRun;
     String highScore;
+    MediaPlayer highScoreSound;
+    MediaPlayer gameOverSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        highScoreSound = MediaPlayer.create(this, R.raw.high_score_sound);
+        gameOverSound = MediaPlayer.create(this, R.raw.gameover_sound);
 
         Intent intent = getIntent();
 
@@ -26,6 +32,7 @@ public class ResultActivity extends AppCompatActivity {
         displayCoinTotal();
 
         highScore = DataStorage.readHighScore(this);
+        playSound();
         updateHighestScore();
         DataStorage.writeHighScore(highScore, this);
         displayHighScore();
@@ -71,8 +78,21 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void updateHighestScore() {
-        if (coinsCollectedInRun > Integer.parseInt(highScore)) {
+        if (isHighScore()) {
             highScore = Integer.toString(coinsCollectedInRun);
+            highScoreSound.start();
+        }
+    }
+
+    private boolean isHighScore() {
+        return coinsCollectedInRun > Integer.parseInt(highScore);
+    }
+
+    public void playSound() {
+        if (isHighScore()) {
+            highScoreSound.start();
+        }else {
+            gameOverSound.start();
         }
     }
 
