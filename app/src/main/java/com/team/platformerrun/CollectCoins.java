@@ -14,7 +14,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class CollectCoins extends AppCompatActivity {
@@ -23,14 +22,12 @@ public class CollectCoins extends AppCompatActivity {
     Coin            coin;
     LocationManager locationManager;
     LocationListener locationListener;
-    Button playButton;
     Long        startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_coins);
-        playButton = (Button) findViewById(R.id.collectCoinsButton);
         coinSound = MediaPlayer.create(this, R.raw.coin_sound );
         coin = new Coin();
         startTime = System.currentTimeMillis();
@@ -84,13 +81,9 @@ public class CollectCoins extends AppCompatActivity {
             return;
         }
         // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //noinspection MissingPermission
-                locationManager.requestLocationUpdates("gps", 5000, 5, locationListener);
-            }
-        });
+
+        locationManager.requestLocationUpdates("gps", 5000, 5, locationListener);
+
     }
 
     public void stopLocationListener() {
