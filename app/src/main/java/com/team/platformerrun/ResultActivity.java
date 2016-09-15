@@ -17,23 +17,16 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        // gets the coins from the completed game
+
         Intent intent = getIntent();
 
         runDuration = (intent.getLongExtra("Duration", 0));
-
         coinsCollectedInRun = intent.getExtras().getInt("Coins");
-
-
-        // displays the total and time
         displayCoinTotal();
-       //Read high score
-        highScore = DataStorage.readHighScore(this);
-        //update high score value
-        updateHighestScore();
-        // save high score
-        DataStorage.writeHighScore(highScore, this);
 
+        highScore = DataStorage.readHighScore(this);
+        updateHighestScore();
+        DataStorage.writeHighScore(highScore, this);
         displayHighScore();
     }
 
