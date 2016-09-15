@@ -14,24 +14,21 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class CollectCoins extends AppCompatActivity {
 
     MediaPlayer coinSound;
-    Coin            coin;
+    Coin coin;
     LocationManager locationManager;
     LocationListener locationListener;
-    Button playButton;
-    Long        startTime;
+    Long startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_coins);
-        playButton = (Button) findViewById(R.id.collectCoinsButton);
-        coinSound = MediaPlayer.create(this, R.raw.coin_sound );
+        coinSound = MediaPlayer.create(this, R.raw.coin_sound);
         coin = new Coin();
         startTime = System.currentTimeMillis();
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -65,7 +62,7 @@ public class CollectCoins extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case 10:
                 startLocationListening();
                 break;
@@ -84,18 +81,14 @@ public class CollectCoins extends AppCompatActivity {
             return;
         }
         // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //noinspection MissingPermission
-                locationManager.requestLocationUpdates("gps", 5000, 5, locationListener);
-            }
-        });
+
+        locationManager.requestLocationUpdates("gps", 5000, 5, locationListener);
+
     }
 
     public void stopLocationListener() {
+        locationManager.removeUpdates(locationListener);
         locationManager = null;
-
     }
 
     public void collectCoins() {
