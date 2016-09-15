@@ -28,6 +28,7 @@
         android:background="@drawable/start_game"
         android:layout_marginBottom="110dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"/>
 
 </RelativeLayout>
