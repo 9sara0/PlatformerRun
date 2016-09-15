@@ -17,23 +17,16 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        // gets the coins from the completed game
+
         Intent intent = getIntent();
 
         runDuration = (intent.getLongExtra("Duration", 0));
-
         coinsCollectedInRun = intent.getExtras().getInt("Coins");
-
-
-        // displays the total and time
         displayCoinTotal();
-       //Read high score
-        highScore = DataStorage.readHighScore(this);
-        //update high score value
-        updateHighestScore();
-        // save high score
-        DataStorage.writeHighScore(highScore, this);
 
+        highScore = DataStorage.readHighScore(this);
+        updateHighestScore();
+        DataStorage.writeHighScore(highScore, this);
         displayHighScore();
     }
 
@@ -47,16 +40,14 @@ public class ResultActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void displayCoinTotal () {
+    private void displayCoinTotal () {
         String duration = formatDuration(runDuration);
         String message = "You collected " + coinsCollectedInRun + " coins in " + duration;
         TextView textView = (TextView) findViewById(R.id.coinsCollected);
         textView.setText(message);
-
     }
 
-
-    public String formatDuration(Long millis) {
+    private String formatDuration(Long millis) {
         long second = (millis/ 1000) % 60;
         long minute = (millis / (1000 * 60)) % 60;
         long hour = (millis / (1000 * 60 * 60)) % 24;
@@ -64,16 +55,15 @@ public class ResultActivity extends AppCompatActivity {
         return time;
     }
 
-    public void displayHighScore() {
+    private void displayHighScore() {
         String message = "High Score " + highScore;
         TextView highScoreText = (TextView) findViewById(R.id.highScore);
         highScoreText.setText(message);
     }
 
-    public void updateHighestScore() {
+    private void updateHighestScore() {
         if (coinsCollectedInRun > Integer.parseInt(highScore)) {
             highScore = Integer.toString(coinsCollectedInRun);
         }
     }
-
 }
