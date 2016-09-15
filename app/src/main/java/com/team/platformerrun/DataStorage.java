@@ -9,9 +9,11 @@ import java.io.IOException;
 
 public class DataStorage  {
 
+    static String fileName = "high_score";
+
     public static String readHighScore(Context context) {
         File filesDir = context.getFilesDir();
-        File scoreData = new File(filesDir, "high_score");
+        File scoreData = new File(filesDir, fileName);
         String defaultHighScore = "0";
         try {
             return FileUtils.readFileToString(scoreData);
@@ -22,7 +24,7 @@ public class DataStorage  {
 
     public static void writeHighScore(String coins, Context context) {
         File filesDir = context.getFilesDir();
-        File scoreData = new File(filesDir, "high_score");
+        File scoreData = new File(filesDir, fileName);
         try {
             FileUtils.writeStringToFile(scoreData, coins);
         } catch (IOException e) {
