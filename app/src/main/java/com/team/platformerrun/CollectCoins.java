@@ -20,6 +20,9 @@ import android.widget.TextView;
 
 public class CollectCoins extends AppCompatActivity {
 
+    final int MIN_DISTANCE = 5; // in meters
+    final int INTERVAL = 5000; // in milli-sec
+
     MediaPlayer coinSound;
     Coin            coin;
     LocationManager locationManager;
@@ -31,13 +34,22 @@ public class CollectCoins extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_coins);
-        playButton = (Button) findViewById(R.id.collectCoinsButton);
-        coinSound = MediaPlayer.create(this, R.raw.coin_sound );
+
+
+        assignVariables();
+        declareLocationListener();
+        startLocationListening();
+        setFont();
+    }
+
+    private void assignVariables(){
         coin = new Coin();
         startTime = System.currentTimeMillis();
+        coinSound = MediaPlayer.create(this, R.raw.coin_sound);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        setFont();
+    }
 
+    private void declareLocationListener(){
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -56,13 +68,10 @@ public class CollectCoins extends AppCompatActivity {
 
             @Override
             public void onProviderDisabled(String s) {
-
                 Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(i);
             }
         };
-        startLocationListening();
-
     }
 
     @Override
@@ -76,8 +85,7 @@ public class CollectCoins extends AppCompatActivity {
         }
     }
 
-    void startLocationListening() {
-        // first check for permissions
+    private void startLocationListening() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}
@@ -85,25 +93,18 @@ public class CollectCoins extends AppCompatActivity {
             }
             return;
         }
-        // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //noinspection MissingPermission
-                locationManager.requestLocationUpdates("gps", 5000, 5, locationListener);
-            }
-        });
+        locationManager.requestLocationUpdates("gps", INTERVAL, MIN_DISTANCE, locationListener);
     }
 
-    public void stopLocationListener() {
+    private void stopLocationListener() {
+        locationManager.removeUpdates(locationListener);
         locationManager = null;
-
     }
 
-    public void collectCoins() {
+    private void collectCoins() {
         coin.addCoin();
         coinSound.start();
-        String message = "Coins This Run: " + Integer.toString(coin.getCoinTotal());
+        String message = Integer.toString(coin.getCoinTotal());
         TextView textView = (TextView) findViewById(R.id.gameRunningTotalCoins);
         textView.setText(message);
     }

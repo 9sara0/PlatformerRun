@@ -31,8 +31,6 @@ public class ResultActivity extends AppCompatActivity {
         displayHighScore();
         displayDuration();
         setFont();
-
-
     }
 
     public void startGame(View view) {
@@ -46,8 +44,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void displayCoinTotal() {
-        String duration = formatDuration(runDuration);
-        String message = "You collected " + coinsCollectedInRun + " coins in " + duration;
+        String message = Integer.toString(coinsCollectedInRun);
         TextView textView = (TextView) findViewById(R.id.coinsCollected);
         textView.setText(message);
     }
@@ -68,7 +65,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void displayHighScore() {
-        String message = "High Score " + highScore;
+        String message = highScore;
         TextView highScoreText = (TextView) findViewById(R.id.highScore);
         highScoreText.setText(message);
     }
