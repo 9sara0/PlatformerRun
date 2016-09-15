@@ -30,7 +30,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ActivityTestRule<HomeActivity> myActivityRule = new ActivityTestRule<>(HomeActivity.class);
 
     @Test
-    public void clickingStartGameButtonShouldDispalyCoinsThisRun0(){
+    public void clickingStartGameButtonShouldDispalyCoinsThisRun1(){
         onView(withId(R.id.startGame))
                 .perform(click());
         onView(withId(R.id.gameRunningTotalCoins))
@@ -38,40 +38,25 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     @Test
-    public void clickingCollectCoinButtonShouldDispalyCoinsThisRun1(){
-        onView(withId(R.id.startGame))
-                .perform(click());
-        onView(withId(R.id.collectCoinsButton))
-                .perform(click());
-        onView(withId(R.id.gameRunningTotalCoins))
-                .check(matches(withText("Coins This Run: 1")));
-    }
-
-
-    @Test
     public void clickingEndGameButtonShouldDispalyYouCollected1Coin(){
         onView(withId(R.id.startGame))
-                .perform(click());
-        onView(withId(R.id.collectCoinsButton))
                 .perform(click());
         onView(withId(R.id.endGameButton))
                 .perform(click());
         onView(withId(R.id.highScore))
-                .check(matches(withText("High Score 6")));
+                .check(matches(withText("High Score 3")));
     }
 
     @Test
     public void clickingMainMenuButtonShouldDispalyHighScore(){
         onView(withId(R.id.startGame))
                 .perform(click());
-        onView(withId(R.id.collectCoinsButton))
-                .perform(click());
         onView(withId(R.id.endGameButton))
                 .perform(click());
         onView(withId(R.id.returnHome))
                 .perform(click());
         onView(withId(R.id.highScore))
-                .check(matches(withText("High Score 6")));
+                .check(matches(withText("High Score 3")));
     }
 
 
