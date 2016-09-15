@@ -20,24 +20,24 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
         android:id="@+id/start_again"
-        android:layout_marginTop="93dp"
         android:onClick="startGame"
         android:background="@drawable/start_game"
-        android:layout_below="@+id/coinsCollected"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/returnHome"
+        android:layout_alignStart="@+id/returnHome" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
         android:id="@+id/returnHome"
-        android:layout_below="@+id/start_again"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
         android:onClick="returnHome"
-        android:background="@drawable/main_menu_button" />
+        android:background="@drawable/main_menu_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,6 +46,6 @@
         android:text="0"
         android:id="@+id/highScore"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/coinsCollected"
-        android:layout_marginStart="25dp" />
+        android:layout_alignEnd="@+id/start_again"
+        android:layout_marginEnd="36dp" />
 </RelativeLayout>

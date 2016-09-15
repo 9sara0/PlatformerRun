@@ -10,15 +10,7 @@
     tools:context="com.team.platformerrun.CollectCoins"
     android:background="@drawable/main_game">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Collect Coin"
-        android:id="@+id/collectCoinsButton"
-        android:onClick="collectCoins"
-        android:layout_above="@+id/endGameButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,14 +24,14 @@
         android:layout_alignEnd="@+id/endGameButton" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
         android:id="@+id/endGameButton"
         android:onClick="endGame"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/end_game"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="67dp"
-        android:background="@drawable/end_game" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 
