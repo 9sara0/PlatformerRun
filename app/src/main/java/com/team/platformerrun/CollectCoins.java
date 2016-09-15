@@ -32,13 +32,12 @@ public class CollectCoins extends AppCompatActivity {
 
     public void endGame(View view) {
         Intent intent = new Intent(this, ResultActivity.class);
-
         intent.putExtra("Duration", calculateDuration());
         intent.putExtra("Coins", coin.getCoinTotal());
         startActivity(intent);
     }
 
-    public Long calculateDuration() {
+    private Long calculateDuration() {
         Long duration;
         duration =  System.currentTimeMillis() - startTime;
         return duration;

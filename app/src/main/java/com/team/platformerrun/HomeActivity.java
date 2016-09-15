@@ -23,12 +23,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    public void displayHighScore() {
+    private void displayHighScore() {
         String message = "High Score " + highScore;
         TextView highScoreText = (TextView) findViewById(R.id.highScore);
         highScoreText.setText(message);
     }
-
-
-
 }
