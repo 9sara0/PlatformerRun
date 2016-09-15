@@ -29,6 +29,7 @@ public class ResultActivity extends AppCompatActivity {
         updateHighestScore();
         DataStorage.writeHighScore(highScore, this);
         displayHighScore();
+        displayDuration();
         setFont();
 
 
@@ -44,10 +45,17 @@ public class ResultActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void displayCoinTotal () {
+    private void displayCoinTotal() {
         String duration = formatDuration(runDuration);
         String message = "You collected " + coinsCollectedInRun + " coins in " + duration;
         TextView textView = (TextView) findViewById(R.id.coinsCollected);
+        textView.setText(message);
+    }
+
+    private void displayDuration() {
+        String duration = formatDuration(runDuration);
+        String message = "Duration: " + duration;
+        TextView textView = (TextView) findViewById(R.id.duration);
         textView.setText(message);
     }
 
@@ -74,8 +82,10 @@ public class ResultActivity extends AppCompatActivity {
     private void setFont() {
         TextView tx = (TextView)findViewById(R.id.coinsCollected);
         TextView tx2 = (TextView)findViewById(R.id.highScore);
+        TextView tx3 = (TextView)findViewById(R.id.duration);
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/mario.ttf");
         tx.setTypeface(custom_font);
         tx2.setTypeface(custom_font);
+        tx3.setTypeface(custom_font);
     }
 }

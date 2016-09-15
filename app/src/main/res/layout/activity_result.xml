@@ -14,10 +14,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=""
+        android:text="0"
         android:id="@+id/coinsCollected"
-        android:layout_marginTop="41dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/start_again"
+        android:layout_alignEnd="@+id/start_again"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="108dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Duration:"
+        android:id="@+id/duration"
+        android:layout_marginStart="47dp"
+        android:layout_below="@+id/highScore"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="180dp"
@@ -46,6 +58,6 @@
         android:text="0"
         android:id="@+id/highScore"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/start_again"
-        android:layout_marginEnd="36dp" />
+        android:layout_toEndOf="@+id/start_again"
+        android:layout_marginStart="37dp" />
 </RelativeLayout>
