@@ -39,7 +39,8 @@
         android:background="@drawable/start_game"
         android:layout_marginBottom="10dp"
         android:layout_above="@+id/returnHome"
-        android:layout_alignStart="@+id/returnHome" />
+        android:layout_alignStart="@+id/returnHome"
+        style="?android:attr/borderlessButtonStyle"/>
 
     <Button
         android:layout_width="180dp"
@@ -49,7 +50,8 @@
         android:background="@drawable/main_menu_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp" />
+        android:layout_marginBottom="100dp"
+        style="?android:attr/borderlessButtonStyle"/>
 
     <TextView
         android:layout_width="wrap_content"

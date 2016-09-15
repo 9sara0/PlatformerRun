@@ -33,7 +33,8 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/end_game"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"/>
 
 </RelativeLayout>
 
