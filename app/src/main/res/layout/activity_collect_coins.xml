@@ -11,26 +11,29 @@
     android:background="@drawable/main_game">
 
 
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="132dp"
         android:layout_height="wrap_content"
-        android:text="Coins This Run: 0"
+        android:text="0"
         android:id="@+id/gameRunningTotalCoins"
         android:textSize="30dp"
+        android:gravity="center"
         android:textStyle="normal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="false"
+        android:layout_toEndOf="@+id/endGameButton" />
+
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
         android:id="@+id/endGameButton"
         android:onClick="endGame"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/end_game"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="67dp"
-        android:background="@drawable/end_game" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

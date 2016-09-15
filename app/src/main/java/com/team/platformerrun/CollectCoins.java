@@ -3,6 +3,7 @@ package com.team.platformerrun;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -14,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class CollectCoins extends AppCompatActivity {
@@ -22,19 +24,22 @@ public class CollectCoins extends AppCompatActivity {
     final int INTERVAL = 5000; // in milli-sec
 
     MediaPlayer coinSound;
-    Coin coin;
+    Coin            coin;
     LocationManager locationManager;
     LocationListener locationListener;
-    Long startTime;
+    Button playButton;
+    Long        startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_coins);
 
+
         assignVariables();
         declareLocationListener();
         startLocationListening();
+        setFont();
     }
 
     private void assignVariables(){
@@ -71,7 +76,7 @@ public class CollectCoins extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
+        switch (requestCode){
             case 10:
                 startLocationListening();
                 break;
@@ -99,7 +104,7 @@ public class CollectCoins extends AppCompatActivity {
     private void collectCoins() {
         coin.addCoin();
         coinSound.start();
-        String message = "Coins This Run: " + Integer.toString(coin.getCoinTotal());
+        String message = Integer.toString(coin.getCoinTotal());
         TextView textView = (TextView) findViewById(R.id.gameRunningTotalCoins);
         textView.setText(message);
     }
@@ -116,5 +121,11 @@ public class CollectCoins extends AppCompatActivity {
         Long duration;
         duration =  System.currentTimeMillis() - startTime;
         return duration;
+    }
+
+    private void setFont() {
+        TextView tx = (TextView)findViewById(R.id.gameRunningTotalCoins);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/mario.ttf");
+        tx.setTypeface(custom_font);
     }
 }

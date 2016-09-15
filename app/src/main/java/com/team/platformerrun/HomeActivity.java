@@ -17,11 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
         highScore = DataStorage.readHighScore(this);
         displayHighScore();
-        TextView tx = (TextView)findViewById(R.id.highScore);
-
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/mario.ttf");
-
-        tx.setTypeface(custom_font);
+        setFont();
     }
 
     public void startGame(View view) {
@@ -31,8 +27,14 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void displayHighScore() {
-        String message = "High Score " + highScore;
+        String message = highScore;
         TextView highScoreText = (TextView) findViewById(R.id.highScore);
         highScoreText.setText(message);
+    }
+
+    private void setFont(){
+       TextView tx = (TextView)findViewById(R.id.highScore);
+       Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/mario.ttf");
+       tx.setTypeface(custom_font);
     }
 }
