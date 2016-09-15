@@ -89,25 +89,25 @@ I would like to be able to sign up, log in and logout
 
 # Run to Riches
 
-A running app inspired by the legendary Mario Game.
+The game-ified running app that will inspire people to get out and work up a sweat.
 
-The app aims to make the demotivated runner excited to get out and enjoy the outdoors.
-
-Pull out your old trainers, dust them off and hit the road:
+Pull out your old trainers, dust them off and get ready to play a timeless classic:
 
 * Collect coins
-* beat your highscore's
-* run faster
+* Beat highscore's
+* Run faster
+* Run longer
 * and most importantly have fun.
 
+You'll be addicted in no time!
 
 ## Getting Started
 
-* This app runs on android versions ??????
+* This app currently runs on android versions ??????
 * To download the app, clone this repo and ????
 
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -161,27 +161,19 @@ Explain what these tests test and why
 Give an example
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 * Android Studio
 * Java
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
 ## Authors
 
-* **Alban Robert Ross Sara**
-list contributor githubs
+* **Alban** https://github.com/albiebabie
+* **Robert** https://github.com/Rob-rls
+* **Ross** https://github.com/SlipperyJ
+* **Sara** https://github.com/9sarah0
+
 
 ## License
 
