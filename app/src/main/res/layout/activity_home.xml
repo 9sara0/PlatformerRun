@@ -10,12 +10,14 @@
         android:layout_width="132dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="High Score 0"
+        android:text="0"
         android:id="@+id/highScore"
         android:textStyle="bold"
         android:gravity="center"
+        android:layout_marginTop="29dp"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/startGame" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="255dp" />
 
     <Button
         android:layout_width="wrap_content"
