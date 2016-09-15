@@ -24,7 +24,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Duration:"
         android:id="@+id/duration"
         android:layout_marginStart="47dp"
@@ -56,7 +55,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
         android:id="@+id/highScore"
         android:layout_alignParentTop="true"
