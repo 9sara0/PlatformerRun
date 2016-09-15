@@ -20,6 +20,7 @@
         android:gravity="center"
         android:textStyle="normal"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="3dp"
         android:layout_alignParentTop="false"
         android:layout_toEndOf="@+id/endGameButton" />
 
