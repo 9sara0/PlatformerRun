@@ -4,11 +4,11 @@ The game-ified running app that will inspire people to get out and work up a swe
 
 Pull out your old trainers, dust them off and get ready to play a timeless classic:
 
-* Collect coins
+1. Collect coins
 * Beat highscore's
 * Run faster
 * Run longer
-* and most importantly have fun.
+* and most importantly, have fun.
 
 You'll be addicted in no time!
 
@@ -22,56 +22,63 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+To run the app you'll need Android Studio and an Android device (which version????) or emulator.
 
 ```
-Give examples
+Install Android Studio from: https://developer.android.com/studio/install.html
+
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Stay what the step will be
+Get the app up and running.
 
 ```
-Give the example
+Clone this repo to your machine
 ```
+**Add pictures!!!!!!!!!!**
 
-And repeat
-
 ```
-until finished
+Click run the app
 ```
+**Add pictures!!!!!!!!!!**
 
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To run the unit tests:
 
-* go to the java directory
+1. go to the java directory
 
-* select the package with the extension android test
+2. select the package with the extension android test
 
-* right click and select run test
+3. right click and select run test
 
-### Break down into end to end tests
+### Test Examples
 
-Explain what these tests test and why
-
+**Unit Test**  
+Ensuring our addCoin method increases the coin total.
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+@Test
+public void addCoinShouldIncrementCoinTotalBy1() {
+    coin.addCoin();
+    assertEquals(1, coin.getCoinTotal());
+}
 ```
 
+
+**Feature Test**  
+Ensuring that the correct default values are displayed when a game is started.
+```
+@Test
+public void clickingStartGameButtonShouldDispalyCoinsThisRun0(){
+    onView(withId(R.id.startGame))
+            .perform(click());
+    onView(withId(R.id.gameRunningTotalCoins))
+            .check(matches(withText("Coins This Run: 0")));
+}
+```
 
 ## Built With
 
@@ -85,10 +92,6 @@ Give an example
 * **Ross** https://github.com/SlipperyJ
 * **Sara** https://github.com/9sarah0
 
-
-## License
-
-This project is licensed under the ARRS License
 
 ## Acknowledgments
 

@@ -30,7 +30,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ActivityTestRule<HomeActivity> myActivityRule = new ActivityTestRule<>(HomeActivity.class);
 
     @Test
-    public void clickingStartGameButtonShouldDispalyCoinsThisRun1(){
+    public void clickingStartGameButtonShouldDispalyCoinsThisRun0(){
         onView(withId(R.id.startGame))
                 .perform(click());
         onView(withId(R.id.gameRunningTotalCoins))
@@ -48,7 +48,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     @Test
-    public void clickingMainMenuButtonShouldDispalyHighScore(){
+    public void clickingMainMenuButtonShouldDispalyHighScore3(){
         onView(withId(R.id.startGame))
                 .perform(click());
         onView(withId(R.id.endGameButton))
