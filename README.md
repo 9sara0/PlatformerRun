@@ -14,15 +14,14 @@ You'll be addicted in no time!
 
 ## Getting Started
 
-* This app currently runs on android versions ??????
-* To download the app, clone this repo and ????
+* This app currently runs on android versions SDK 23+
 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-To run the app you'll need Android Studio and an Android device (which version????) or emulator.
+To run the app you'll need Android Studio and an Android device with SDK version 23+(marshmallow).
 
 ```
 Install Android Studio from: https://developer.android.com/studio/install.html
@@ -31,19 +30,13 @@ Install Android Studio from: https://developer.android.com/studio/install.html
 
 ### Installing
 
-Get the app up and running.
-
 ```
 Clone this repo to your machine
+Open the project in Android Studio
+Connect your Android phone to the computer
+Make sure you phone is set to 'Development Mode'
+Run the app an Android Studio and select your pone as the device
 ```
-**Add pictures!!!!!!!!!!**
-
-```
-Click run the app
-```
-**Add pictures!!!!!!!!!!**
-
-
 ## Built With
 
 * Android Studio
@@ -59,6 +52,4 @@ Click run the app
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Thanks to Roi for the awesome design inspiration
